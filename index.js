@@ -1,36 +1,35 @@
-require('dotenv').config();
+const express = require("express");
+const bodyParser = require("body-parser");
+const { setMap } = require("./api/post");
+const { getMap } = require('./api/get');
 
-const express = require('express')
-const Sequelize = require('sequelize')
+const PORT = (3000);
+const app = express();
 
-
-const app = express()
-
-const port = 3000
-const connectionString = process.env.DATABASE_URL;
-const sequelize = new Sequelize(connectionString)
-
-
-
-app.use(express.json());
-
-app.get('/', (req, res) => res.json({ message: 'Hello World' }))
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
 
 
-sequelize
-
-.authenticate()
-
-.then(() => {
-
-console.log('Connection has been established successfully.');
-
+app.post("/map", (req, res, then) => {
+  setMap(req)
+    .then(function (data) {
+        //console.log("DATA", data);
+      res.send(data);
+    });
+});
+app.get("/map", (req, res, then) => {
+    getMap()
+    .then(function (data) {
+        console.log(data);
+        res.send(data);
+      });
 })
 
-.catch(err => {
+app.get("/", (req, res) => {
+  res.send("Hello world");
+});
 
-console.error('Unable to connect to the database:', err);
-
+app.listen(PORT, '0.0.0.0', () => {
+ console.log(`Server is listening on port: ${PORT}`);
 });

@@ -1,0 +1,19 @@
+create TABLE map (
+    id SERIAL PRIMARY KEY,
+    about VARCHAR(256) NOT NULL,
+    size VARCHAR(256)
+);
+
+
+/*CREATE TABLE locations (
+  id SERIAL PRIMARY KEY,
+  category VARCHAR(256) NOT NULL,
+  name VARCHAR(256) NOT NULL UNIQUE,
+  address VARCHAR(256) NOT NULL,
+  postalcode VARCHAR(256),about
+  mail VARCHAR(256),
+  phone VARCHAR(256) NOT NULL,
+  image VARCHAR(512) DEFAULT NULL,
+  lat FLOAT DEFAULT 64.14594,
+  lon FLOAT DEFAULT -21.93133
+);*/
