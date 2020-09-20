@@ -1,11 +1,14 @@
+require('dotenv').config();
+
 const express = require('express')
 const Sequelize = require('sequelize')
+
 
 const app = express()
 
 const port = 3000
-
-const sequelize = new Sequelize('postgres://postgres:Vera85hanna@localhost:5432/socratica')
+const connectionString = process.env.DATABASE_URL;
+const sequelize = new Sequelize(connectionString)
 
 
 
