@@ -1,5 +1,5 @@
 # dependencies
 /node_modules
 
-
+./app/config/env.js
 .env
