@@ -2,9 +2,9 @@ const env = require('./env.js');
  
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize(`socratica`, `postgres`, `Vera85hanna`, {
-  host: 'localhost',
-  dialect: 'postgres',
+const sequelize = new Sequelize(`${env.database}`, `${env.username}`, `${env.password}`, {
+  host: env.host,
+  dialect: env.dialect,
   operatorsAliases: 0,
  
   pool: {

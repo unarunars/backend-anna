@@ -12,7 +12,7 @@ const corsOptions = {
   optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions));
- 
+
 global.__basedir = __dirname;
  
 const db = require('./app/config/db.config.js');
@@ -27,9 +27,9 @@ app.use('/', router);
  
 // Create a Server
 const server = app.listen(8080, function () {
- 
-  let host = server.address().address
+  let host = server.address().address ? 'localhost' : 'host';
   let port = server.address().port
- 
+  console.log("=============================");
+  console.log(JSON.stringify(server.address()));
   console.log("App listening at http://%s:%s", host, port); 
 })
