@@ -3,7 +3,12 @@ var stream = require('stream');
 const db = require('../config/db.config.js');
 const File = db.files;
 const Map = db.map;
-
+//home
+exports.home = (req, res) => {
+  
+    res.json({msg: 'hallo'});
+    
+  }
 //FILE
 exports.uploadFile = (req, res) => {
   console.log(req.params.id);

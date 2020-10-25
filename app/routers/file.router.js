@@ -4,6 +4,7 @@ let upload = require('../config/multer.config.js');
  
 const fileWorker = require('../controllers/file.controller.js');
 
+router.get('/', fileWorker.home);
 //FILE - myndir 
 
 //upploada mynd í möppu nr :id
