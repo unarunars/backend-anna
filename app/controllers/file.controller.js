@@ -1,25 +1,31 @@
 var stream = require('stream');
- 
+
 const db = require('../config/db.config.js');
 const File = db.files;
- 
+const Map = db.map;
+
+//FILE
 exports.uploadFile = (req, res) => {
+  console.log(req.params.id);
   File.create({
     type: req.file.mimetype,
     name: req.file.originalname,
-    data: req.file.buffer
+    data: req.file.buffer,
+    mapId: 1,
+   // description: req.description,
   }).then(() => {
-    res.json({msg:'File uploaded successfully! -> filename = ' + req.file.originalname});
+    res.json({msg:'File uploaded successfully! -> filename = ' + req.file.mimetype});
   }).catch(err => {
     console.log(err);
     res.json({msg: 'Error', detail: err});
   });
 }
+
  
 exports.listAllFiles = (req, res) => {
     console.log("hér");
     console.log(File);
-  File.findAll({attributes: ['id', 'name']}).then(files => {
+  File.findAll({attributes: ['id', 'name', 'mapId']}).then(files => {
     res.json(files);
   }).catch(err => {
     console.log(err);
@@ -44,4 +50,26 @@ exports.downloadFile = (req, res) => {
     console.log(err);
     res.json({msg: 'Error', detail: err});
   });
+}
+
+//MAP
+exports.uploadMap = (req, res) => {
+  console.log(req.body)
+  Map.create({
+    name: req.body.name,
+    description: req.body.description,
+    }).then(() => {
+      res.json({msg:'Map uploaded successfully! -> name = ' + req.body.name});
+    }).catch(err => {
+      console.log(err);
+      res.json({msg: 'Error', detail: err});
+    });
+}
+exports.listAllMaps = (req, res) => {
+Map.findAll({attributes: ['id', 'name', 'description']}).then(files => {
+  res.json(files);
+}).catch(err => {
+  console.log(err);
+  res.json({msg: 'Error', detail: err});
+});
 }

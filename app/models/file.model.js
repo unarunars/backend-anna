@@ -10,6 +10,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.BLOB('long')
       }
     });
+    //const 
     
     return File;
   }

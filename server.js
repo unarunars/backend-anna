@@ -1,5 +1,9 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser')
+
+//const app = express()
+app.use(bodyParser.json())
  
 const cors = require('cors')
 const corsOptions = {
@@ -13,8 +17,8 @@ global.__basedir = __dirname;
 const db = require('./app/config/db.config.js');
   
 // force: true will drop the table if it already exists
-db.sequelize.sync({force: true}).then(() => {
-  console.log('Drop and Resync with { force: true }');
+db.sequelize.sync({force: false}).then(() => {
+  console.log('Drop and Resync with { force: false }');
 }); 
  
 let router = require('./app/routers/file.router.js');
