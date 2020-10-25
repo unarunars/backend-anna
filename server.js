@@ -26,10 +26,10 @@ let router = require('./app/routers/file.router.js');
 app.use('/', router);
  
 // Create a Server
-const server = app.listen(8080, function () {
-  let host = server.address().address ? '127.0.0.1' : 'host';
-  let port = server.address().port
+const server = app.listen(8080,'0.0.0.0', function () {
+  //let host = server.address().address;
+  let port = server.address().port;
   console.log("=============================");
   console.log(JSON.stringify(server.address()));
-  console.log("App listening at http://%s:%s", host, port); 
+  console.log("App listening at port:", port); 
 })
