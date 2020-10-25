@@ -1,0 +1,201 @@
+[debug] [2020-10-25T22:07:54.181Z] ----------------------------------------------------------------------
+[debug] [2020-10-25T22:07:54.183Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-10-25T22:07:54.183Z] CLI Version:   8.13.1
+[debug] [2020-10-25T22:07:54.183Z] Platform:      win32
+[debug] [2020-10-25T22:07:54.183Z] Node Version:  v12.16.2
+[debug] [2020-10-25T22:07:54.184Z] Time:          Sun Oct 25 2020 22:07:54 GMT+0000 (GMT)
+[debug] [2020-10-25T22:07:54.184Z] ----------------------------------------------------------------------
+[debug] [2020-10-25T22:07:54.184Z] 
+[debug] [2020-10-25T22:07:54.190Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-10-25T22:07:54.191Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Skoli\haust 2020\Lokaverkefni\backend
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2020-10-25T22:08:05.541Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-10-25T22:08:05.541Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-10-25T22:08:05.834Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Sun, 25 Oct 2020 22:08:05 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-25T22:08:05.845Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2020-10-25T22:08:06.237Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 25 Oct 2020 22:08:06 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-25T22:08:25.496Z] ----------------------------------------------------------------------
+[debug] [2020-10-25T22:08:25.498Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-10-25T22:08:25.498Z] CLI Version:   8.13.1
+[debug] [2020-10-25T22:08:25.498Z] Platform:      win32
+[debug] [2020-10-25T22:08:25.499Z] Node Version:  v12.16.2
+[debug] [2020-10-25T22:08:25.500Z] Time:          Sun Oct 25 2020 22:08:25 GMT+0000 (GMT)
+[debug] [2020-10-25T22:08:25.500Z] ----------------------------------------------------------------------
+[debug] [2020-10-25T22:08:25.500Z] 
+[debug] [2020-10-25T22:08:25.506Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-10-25T22:08:25.507Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Skoli\haust 2020\Lokaverkefni\backend
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2020-10-25T22:09:01.863Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects  
+ {"projectId":"annaApi","name":"annaApi"}
+[debug] [2020-10-25T22:09:02.721Z] <<< HTTP RESPONSE 400 {"vary":"X-Origin, Referer, Origin,Accept-Encoding","content-type":"application/json; charset=UTF-8","date":"Sun, 25 Oct 2020 22:09:02 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=596","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-25T22:09:02.722Z] <<< HTTP RESPONSE BODY {"error":{"code":400,"message":"field [project_id] has issue [project_id contains invalid characters]","status":"INVALID_ARGUMENT","details":[{"@type":"type.googleapis.com/google.rpc.BadRequest","fieldViolations":[{"field":"project_id","description":"project_id contains invalid characters"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"url":"https://cloud.google.com/resource-manager/reference/rest/v1/projects"}]}]}}
+[debug] [2020-10-25T22:09:02.919Z] FirebaseError: HTTP Error: 400, field [project_id] has issue [project_id contains invalid characters]
+    at module.exports (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at Request._callback (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:41:35)
+    at Request.self.callback (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:310:20)
+    at Request.EventEmitter.emit (domain.js:482:12)
+    at Request.<anonymous> (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1154:10)
+    at Request.emit (events.js:310:20)
+    at Request.EventEmitter.emit (domain.js:482:12)
+    at IncomingMessage.<anonymous> (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1076:12)
+    at Object.onceWrapper (events.js:416:28)
+    at IncomingMessage.emit (events.js:322:22)
+    at IncomingMessage.EventEmitter.emit (domain.js:482:12)
+    at endReadableNT (_stream_readable.js:1187:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+[error] 
+[error] Error: Failed to create project. See firebase-debug.log for more info.
+[debug] [2020-10-25T22:09:23.355Z] ----------------------------------------------------------------------
+[debug] [2020-10-25T22:09:23.357Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-10-25T22:09:23.357Z] CLI Version:   8.13.1
+[debug] [2020-10-25T22:09:23.357Z] Platform:      win32
+[debug] [2020-10-25T22:09:23.357Z] Node Version:  v12.16.2
+[debug] [2020-10-25T22:09:23.358Z] Time:          Sun Oct 25 2020 22:09:23 GMT+0000 (GMT)
+[debug] [2020-10-25T22:09:23.358Z] ----------------------------------------------------------------------
+[debug] [2020-10-25T22:09:23.358Z] 
+[debug] [2020-10-25T22:09:23.365Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-10-25T22:09:23.365Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Skoli\haust 2020\Lokaverkefni\backend
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2020-10-25T22:09:44.437Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects  
+ {"projectId":"0612","name":"annaApi"}
+[debug] [2020-10-25T22:09:45.212Z] <<< HTTP RESPONSE 400 {"vary":"X-Origin, Referer, Origin,Accept-Encoding","content-type":"application/json; charset=UTF-8","date":"Sun, 25 Oct 2020 22:09:45 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=580","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-25T22:09:45.213Z] <<< HTTP RESPONSE BODY {"error":{"code":400,"message":"Request contains an invalid argument.","status":"INVALID_ARGUMENT","details":[{"@type":"type.googleapis.com/google.rpc.BadRequest","fieldViolations":[{"field":"project_id","description":"project_id must be at least 6 characters long"},{"field":"project_id","description":"project_id contains invalid characters"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"url":"https://cloud.google.com/resource-manager/reference/rest/v1/projects"}]}]}}
+[debug] [2020-10-25T22:09:45.405Z] FirebaseError: HTTP Error: 400, Request contains an invalid argument.
+    at module.exports (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at Request._callback (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:41:35)
+    at Request.self.callback (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:310:20)
+    at Request.EventEmitter.emit (domain.js:482:12)
+    at Request.<anonymous> (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1154:10)
+    at Request.emit (events.js:310:20)
+    at Request.EventEmitter.emit (domain.js:482:12)
+    at IncomingMessage.<anonymous> (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1076:12)
+    at Object.onceWrapper (events.js:416:28)
+    at IncomingMessage.emit (events.js:322:22)
+    at IncomingMessage.EventEmitter.emit (domain.js:482:12)
+    at endReadableNT (_stream_readable.js:1187:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+[error] 
+[error] Error: Failed to create project. See firebase-debug.log for more info.
+[debug] [2020-10-25T22:09:52.337Z] ----------------------------------------------------------------------
+[debug] [2020-10-25T22:09:52.339Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-10-25T22:09:52.339Z] CLI Version:   8.13.1
+[debug] [2020-10-25T22:09:52.339Z] Platform:      win32
+[debug] [2020-10-25T22:09:52.339Z] Node Version:  v12.16.2
+[debug] [2020-10-25T22:09:52.340Z] Time:          Sun Oct 25 2020 22:09:52 GMT+0000 (GMT)
+[debug] [2020-10-25T22:09:52.340Z] ----------------------------------------------------------------------
+[debug] [2020-10-25T22:09:52.340Z] 
+[debug] [2020-10-25T22:09:52.347Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-10-25T22:09:52.347Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Skoli\haust 2020\Lokaverkefni\backend
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2020-10-25T22:10:14.014Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects  
+ {"projectId":"0612","name":"agunn-api"}
+[debug] [2020-10-25T22:10:14.850Z] <<< HTTP RESPONSE 400 {"vary":"X-Origin, Referer, Origin,Accept-Encoding","content-type":"application/json; charset=UTF-8","date":"Sun, 25 Oct 2020 22:10:14 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=638","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-25T22:10:14.850Z] <<< HTTP RESPONSE BODY {"error":{"code":400,"message":"Request contains an invalid argument.","status":"INVALID_ARGUMENT","details":[{"@type":"type.googleapis.com/google.rpc.BadRequest","fieldViolations":[{"field":"project_id","description":"project_id must be at least 6 characters long"},{"field":"project_id","description":"project_id contains invalid characters"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"url":"https://cloud.google.com/resource-manager/reference/rest/v1/projects"}]}]}}
+[debug] [2020-10-25T22:10:15.057Z] FirebaseError: HTTP Error: 400, Request contains an invalid argument.
+    at module.exports (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at Request._callback (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:41:35)
+    at Request.self.callback (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:310:20)
+    at Request.EventEmitter.emit (domain.js:482:12)
+    at Request.<anonymous> (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1154:10)
+    at Request.emit (events.js:310:20)
+    at Request.EventEmitter.emit (domain.js:482:12)
+    at IncomingMessage.<anonymous> (C:\Users\unarunars\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1076:12)
+    at Object.onceWrapper (events.js:416:28)
+    at IncomingMessage.emit (events.js:322:22)
+    at IncomingMessage.EventEmitter.emit (domain.js:482:12)
+    at endReadableNT (_stream_readable.js:1187:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+[error] 
+[error] Error: Failed to create project. See firebase-debug.log for more info.
