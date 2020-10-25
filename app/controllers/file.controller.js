@@ -18,6 +18,7 @@ exports.uploadFile = (req, res) => {
   }).catch(err => {
     console.log(err);
     res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
   });
 }
 
@@ -30,6 +31,7 @@ exports.listAllFiles = (req, res) => {
   }).catch(err => {
     console.log(err);
     res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
   });
 }
  
@@ -49,6 +51,7 @@ exports.downloadFile = (req, res) => {
   }).catch(err => {
     console.log(err);
     res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
   });
 }
 
@@ -63,6 +66,7 @@ exports.uploadMap = (req, res) => {
     }).catch(err => {
       console.log(err);
       res.json({msg: 'Error', detail: err});
+      res.sendStatus(500);
     });
 }
 exports.listAllMaps = (req, res) => {
@@ -71,5 +75,6 @@ Map.findAll({attributes: ['id', 'name', 'description']}).then(files => {
 }).catch(err => {
   console.log(err);
   res.json({msg: 'Error', detail: err});
+  res.sendStatus(500);
 });
 }
