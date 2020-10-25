@@ -27,7 +27,7 @@ app.use('/', router);
  
 // Create a Server
 const server = app.listen(8080, function () {
-  let host = server.address().address ? 'localhost' : 'host';
+  let host = server.address().address ? '127.0.0.1' : 'host';
   let port = server.address().port
   console.log("=============================");
   console.log(JSON.stringify(server.address()));

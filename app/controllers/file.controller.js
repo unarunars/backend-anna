@@ -6,7 +6,7 @@ const Map = db.map;
 //home
 exports.home = (req, res) => {
   
-    res.json({msg: 'hallo'});
+    res.json({msg: 'hallooo'});
     
   }
 //FILE
