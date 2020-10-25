@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
+require('make-promises-safe').abort = true
 
 //const app = express()
 app.use(bodyParser.json())
