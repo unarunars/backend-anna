@@ -13,7 +13,7 @@ router.get('/api/file/info', fileWorker.listAllFiles);
  
 router.get('/api/file/:id', fileWorker.downloadFile);
 
-router.delete('/api/file/:id', fileWorker.deleteFile)
+//router.delete('/api/file/:id', fileWorker.deleteFile)
  
 //MAP - yfirmappan, í einnu möpppu er myndir(file) af einni sýningu(map)
 
