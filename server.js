@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const env = require('./app/config/env.js');
+
 const bodyParser = require('body-parser')
 require('make-promises-safe').abort = true
 
@@ -26,7 +28,8 @@ let router = require('./app/routers/file.router.js');
 app.use('/', router);
  
 // Create a Server
-const server = app.listen(/*5432,'0.0.0.0',*/ 8080, '0.0.0.0', function () {
+let port = env.PORT || 8080
+const server = app.listen(/*5432,'0.0.0.0',*/ 5432 ,'127.0.0.1', function () {
   let host = server.address().address;
   let port = server.address().port;
   console.log("=============================");
