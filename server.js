@@ -29,7 +29,7 @@ app.use('/', router);
  
 // Create a Server
 let port = env.PORT || 8080
-const server = app.listen(/*5432,'0.0.0.0',*/ 5432 ,'127.0.0.1', function () {
+const server = app.listen(/*5432,'0.0.0.0',*/ port ,'127.0.0.1', function () {
   let host = server.address().address;
   let port = server.address().port;
   console.log("=============================");
