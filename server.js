@@ -28,8 +28,8 @@ let router = require('./app/routers/file.router.js');
 app.use('/', router);
  
 // Create a Server
-let port = env.PORT || 8080
-const server = app.listen(/*5432,'0.0.0.0',*/ port ,'127.0.0.1', function () {
+let port = env.PORT || 8080;
+const server = app.listen(/*5432,'0.0.0.0',*/ port , function () {
   let host = server.address().address;
   let port = server.address().port;
   console.log("=============================");
