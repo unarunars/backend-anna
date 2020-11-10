@@ -26,8 +26,8 @@ let router = require('./app/routers/file.router.js');
 app.use('/', router);
  
 // Create a Server
-const server = app.listen(5432,'0.0.0.0', function () {
-  //let host = server.address().address;
+const server = app.listen(/*5432,'0.0.0.0',*/ 8080, '0.0.0.0', function () {
+  let host = server.address().address;
   let port = server.address().port;
   console.log("=============================");
   console.log(JSON.stringify(server.address()));
