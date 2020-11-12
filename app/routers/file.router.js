@@ -9,10 +9,11 @@ router.get('/', fileWorker.home);
 
 //upploada mynd í möppu nr :id
 router.post('/api/file/upload/:id', upload.single("file"), fileWorker.uploadFile);
+
+//id er mapId til að vita hvað það eru margir? 
+router.get('/api/file/info/:mapId', fileWorker.listAllFiles);
  
-router.get('/api/file/info', fileWorker.listAllFiles);
- 
-router.get('/api/file/:id', fileWorker.downloadFile);
+router.get('/api/file/:mapId/:id', fileWorker.downloadFile);
 
 //router.delete('/api/file/:id', fileWorker.deleteFile)
  

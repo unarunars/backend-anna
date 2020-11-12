@@ -33,7 +33,13 @@ exports.listAllFiles = (req, res) => {
     console.log("hér");
     console.log(File);
   
-  File.findAll({attributes: ['id', 'name', 'mapId']}).then(files => {
+  File.findAll(
+    {
+      where: {
+        mapId : req.params.mapId
+      }
+    } && 
+    {attributes: ['id', 'name', 'mapId']}).then(files => {
     res.json(files);
   }).catch(err => {
     console.log(err);
@@ -48,11 +54,12 @@ exports.downloadFile = (req, res) => {
     console.log(File);
   const temp = File.findAll({
     where: {
-      mapId: req.params.id
+      mapId: req.params.mapId,
+      id: req.params.id,
     }
   }).then(file => {
-    console.log(file.length);
-    for(let i = 0; i < file.length; i++){
+    console.log(file);
+    for(let i = 0; i < file[i].length; i++){
       console.log("bara einu sinni??", i);
       var fileContents = Buffer.from(file[i].data, "base64");
       var readStream = new stream.PassThrough();
@@ -61,8 +68,7 @@ exports.downloadFile = (req, res) => {
       res.set('Content-Type', file[i].type);
       readStream.pipe(res);
       
-    }
-    
+    }    
     //res.json(file);
     /*var fileContents = Buffer.from(file.data, "base64");
     var readStream = new stream.PassThrough();
@@ -77,7 +83,7 @@ exports.downloadFile = (req, res) => {
     res.json({msg: 'Error', detail: err});
     res.sendStatus(500);
   });
-  //console.log(temp);
+  
 }
 
 
