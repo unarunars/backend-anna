@@ -22,6 +22,7 @@ db.sequelize = sequelize;
  
 db.files = require('../models/file.model.js')(sequelize, Sequelize);
 db.map = require('../models/map.model.js')(sequelize, Sequelize);
+db.fileDescription = require('../models/fileDescription.model.js')(sequelize, Sequelize);
 
 db.map.hasMany(db.files, {as: "File"});
 db.files.belongsTo(db.map, {

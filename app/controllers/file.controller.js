@@ -3,6 +3,7 @@ const { QueryTypes } = require('sequelize');
 const db = require('../config/db.config.js');
 const File = db.files;
 const Map = db.map;
+const FileDescription = db.fileDescription;
 
 //home
 exports.home = (req, res) => {
@@ -28,7 +29,6 @@ exports.uploadFile = (req, res) => {
   });
 }
 
- 
 exports.listAllFiles = (req, res) => {
     console.log("hér");
     console.log(File);
@@ -58,35 +58,49 @@ exports.downloadFile = (req, res) => {
       id: req.params.id,
     }
   }).then(file => {
-    //console.log(file);
-   // for(let i = 0; i < file[i].length; i++){
-     // console.log("bara einu sinni??", i);
       var fileContents = Buffer.from(file[0].data, "base64");
       var readStream = new stream.PassThrough();
       readStream.end(fileContents);
       res.set('Content-disposition', 'attachment; filename=' + file[0].name);
       res.set('Content-Type', file[0].type);
       readStream.pipe(res);
-      
-   // }    
-    //res.json(file);
-    /*var fileContents = Buffer.from(file.data, "base64");
-    var readStream = new stream.PassThrough();
-    readStream.end(fileContents);
-    
-    res.set('Content-disposition', 'attachment; filename=' + file.name);
-    res.set('Content-Type', file.type);
  
-    readStream.pipe(res);*/
   }).catch(err => {
     console.log(err);
     res.json({msg: 'Error', detail: err});
     res.sendStatus(500);
   });
-  
 }
-
-
+//FILE DESCRIPTION
+exports.setFileDescription = (req, res) => {
+  FileDescription.create({
+    title: req.body.title,
+    description: req.body.description,
+    size: req.body.size,
+    photoId: req.body.photoId,
+    mapId: req.body.mapId,
+    }).then(() => {
+      res.json({msg:'Map uploaded successfully! -> name = ' + req.body});
+    }).catch(err => {
+      console.log(err);
+      res.json({msg: 'Error', detail: err});
+      res.sendStatus(500);
+    });
+}
+exports.getFileDescription = (req, res) => {
+  FileDescription.findAll({
+    where: {
+      mapId: req.params.mapId,
+      id: req.params.id,
+    }
+  }).then(files => {
+    res.json(files);
+  }).catch(err => {
+    console.log(err);
+    res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
+  });
+}
 //MAP
 exports.uploadMap = (req, res) => {
   console.log(req.body)

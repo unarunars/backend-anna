@@ -8,6 +8,12 @@ module.exports = (sequelize, Sequelize) => {
       },
       size: {
         type: Sequelize.STRING
+      },
+      photoId: {
+        type: Sequelize.INTEGER
+      },
+      mapId: {
+        type: Sequelize.INTEGER
       }
     });
     
