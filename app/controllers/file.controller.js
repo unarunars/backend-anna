@@ -58,17 +58,17 @@ exports.downloadFile = (req, res) => {
       id: req.params.id,
     }
   }).then(file => {
-    console.log(file);
-    for(let i = 0; i < file[i].length; i++){
-      console.log("bara einu sinni??", i);
-      var fileContents = Buffer.from(file[i].data, "base64");
+    //console.log(file);
+   // for(let i = 0; i < file[i].length; i++){
+     // console.log("bara einu sinni??", i);
+      var fileContents = Buffer.from(file[0].data, "base64");
       var readStream = new stream.PassThrough();
       readStream.end(fileContents);
-      res.set('Content-disposition', 'attachment; filename=' + file[i].name);
-      res.set('Content-Type', file[i].type);
+      res.set('Content-disposition', 'attachment; filename=' + file[0].name);
+      res.set('Content-Type', file[0].type);
       readStream.pipe(res);
       
-    }    
+   // }    
     //res.json(file);
     /*var fileContents = Buffer.from(file.data, "base64");
     var readStream = new stream.PassThrough();
