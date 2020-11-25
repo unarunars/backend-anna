@@ -1,5 +1,5 @@
 var stream = require('stream');
-const { QueryTypes } = require('sequelize');
+const { Op } = require("sequelize");
 const db = require('../config/db.config.js');
 const File = db.files;
 const Map = db.map;
@@ -32,14 +32,16 @@ exports.uploadFile = (req, res) => {
 exports.listAllFiles = (req, res) => {
     console.log("hér");
     console.log(File);
-  
-  File.findAll(
-    {
+    console.log(req.body.mapId);
+    console.log(req.params.mapId);
+  File.findAll({
       where: {
-        mapId : req.params.mapId
-      }
-    } && 
-    {attributes: ['id', 'name', 'mapId']}).then(files => {
+        mapId : {
+          [Op.eq]: req.params.mapId
+        }
+      },
+      attributes: ['id', 'name', 'mapId']
+  }).then(files => {
     res.json(files);
   }).catch(err => {
     console.log(err);
@@ -54,8 +56,10 @@ exports.downloadFile = (req, res) => {
     console.log(File);
   const temp = File.findAll({
     where: {
-      mapId: req.params.mapId,
-      id: req.params.id,
+      [Op.and]: [
+        {mapId: req.params.mapId},
+        {id: req.params.id}
+      ]
     }
   }).then(file => {
       var fileContents = Buffer.from(file[0].data, "base64");
@@ -71,6 +75,22 @@ exports.downloadFile = (req, res) => {
     res.sendStatus(500);
   });
 }
+exports.deleteFile = (req, res ) => {
+  File.destroy({
+    where: {
+      [Op.and]: [
+        {mapId: req.params.mapId},
+        {id: req.params.id}
+      ]
+    }
+  }).then(files => {
+    res.json({msg:'File deleted! -> name = ' + req.body.name});
+  }).catch(err => {
+    console.log(err);
+    res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
+  });
+}
 //FILE DESCRIPTION
 exports.setFileDescription = (req, res) => {
   FileDescription.create({
@@ -80,7 +100,7 @@ exports.setFileDescription = (req, res) => {
     photoId: req.body.photoId,
     mapId: req.body.mapId,
     }).then(() => {
-      res.json({msg:'Map uploaded successfully! -> name = ' + req.body});
+      res.json({msg:'Filedescription uploaded successfully! -> name = ' + req.body.title});
     }).catch(err => {
       console.log(err);
       res.json({msg: 'Error', detail: err});
@@ -90,8 +110,10 @@ exports.setFileDescription = (req, res) => {
 exports.getFileDescription = (req, res) => {
   FileDescription.findAll({
     where: {
-      mapId: req.params.mapId,
-      id: req.params.id,
+      [Op.and]: [
+        {mapId: req.params.mapId},
+        {id: req.params.id}
+      ]
     }
   }).then(files => {
     res.json(files);

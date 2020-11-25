@@ -15,7 +15,7 @@ router.get('/api/file/info/:mapId', fileWorker.listAllFiles);
  
 router.get('/api/file/:mapId/:id', fileWorker.downloadFile);
 
-//router.delete('/api/file/:id', fileWorker.deleteFile)
+router.delete('/api/file/:mapId/:id', fileWorker.deleteFile)
 
 //fileDescription - sem er hengt við hverja mynd
 

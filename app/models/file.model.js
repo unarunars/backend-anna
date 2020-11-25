@@ -6,6 +6,9 @@ module.exports = (sequelize, Sequelize) => {
       name: {
         type: Sequelize.STRING
       },
+      mapId: {
+        type: Sequelize.STRING
+      },
       data: {
         type: Sequelize.BLOB('long')
       }
