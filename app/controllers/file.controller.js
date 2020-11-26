@@ -138,11 +138,26 @@ exports.uploadMap = (req, res) => {
     });
 }
 exports.listAllMaps = (req, res) => {
-Map.findAll({attributes: ['id', 'name', 'description']}).then(files => {
-  res.json(files);
-}).catch(err => {
-  console.log(err);
-  res.json({msg: 'Error', detail: err});
-  res.sendStatus(500);
-});
+  Map.findAll({attributes: ['id', 'name', 'description']}).then(files => {
+    res.json(files);
+  }).catch(err => {
+    console.log(err);
+    res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
+  });
+}
+exports.deleteMap = (req, res )=> {
+  Map.destroy({
+    where: {
+      id : {
+        [Op.eq]: req.params.mapId
+      }
+    }
+  }).then(files => {
+    res.json({msg:'File deleted! -> name = ' + files});
+  }).catch(err => {
+    console.log(err);
+    res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
+  });
 }
