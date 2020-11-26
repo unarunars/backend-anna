@@ -31,5 +31,10 @@ router.get('/api/map/info', fileWorker.listAllMaps);
 
 router.delete('/api/map/:mapId', fileWorker.deleteMap)
 
+//USER 
+
+router.post('/api/users',  upload.single("file"), fileWorker.createUser);
+
+router.post('/api/login', upload.single("file"), fileWorker.login);
 
 module.exports = router;

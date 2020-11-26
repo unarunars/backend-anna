@@ -3,6 +3,7 @@ const { Op } = require("sequelize");
 const db = require('../config/db.config.js');
 const File = db.files;
 const Map = db.map;
+const User = db.user;
 const FileDescription = db.fileDescription;
 
 //home
@@ -161,3 +162,32 @@ exports.deleteMap = (req, res )=> {
     res.sendStatus(500);
   });
 }
+exports.createUser = (req, res) => {
+  User.create({
+    name: req.body.name,
+    psw: req.body.psw,
+  }).then(() => {
+    res.json({msg:'User registered successfully! -> name = ' + req.body.name});
+  }).catch(err => {
+    console.log(err);
+    res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
+  }); 
+}
+
+exports.login = (req, res)=> {
+  console.log(req.body.name);
+  User.findAll({
+    where: {
+      [Op.and]: [
+        {name: req.body.name},
+        {psw: req.body.psw}
+      ]
+    }
+  }).then(files => {
+      res.json(req.body.name)
+    }).catch(err => {
+      res.json({msg: 'Notandi fannst ekki'})
+    })
+}
+
