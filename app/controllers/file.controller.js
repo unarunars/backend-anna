@@ -4,6 +4,9 @@ const db = require('../config/db.config.js');
 const File = db.files;
 const Map = db.map;
 const User = db.user;
+const Cv = db.cv;
+const ShowCover = db.showCover;
+const Cover = db.cover;
 const FileDescription = db.fileDescription;
 
 //home
@@ -55,7 +58,7 @@ exports.downloadFile = (req, res) => {
     console.log("#########");
     console.log(req.params.id);
     console.log(File);
-  const temp = File.findAll({
+  File.findAll({
     where: {
       [Op.and]: [
         {mapId: req.params.mapId},
@@ -100,8 +103,8 @@ exports.setFileDescription = (req, res) => {
     size: req.body.size,
     photoId: req.body.photoId,
     mapId: req.body.mapId,
-    }).then(() => {
-      res.json({msg:'Filedescription uploaded successfully! -> name = ' + req.body.title});
+    }).then((file) => {
+      res.json(file);
     }).catch(err => {
       console.log(err);
       res.json({msg: 'Error', detail: err});
@@ -113,7 +116,7 @@ exports.getFileDescription = (req, res) => {
     where: {
       [Op.and]: [
         {mapId: req.params.mapId},
-        {id: req.params.id}
+        {photoId: req.params.photoId}
       ]
     }
   }).then(files => {
@@ -123,6 +126,24 @@ exports.getFileDescription = (req, res) => {
     res.json({msg: 'Error', detail: err});
     res.sendStatus(500);
   });
+}
+exports.listAllFileDescription = (req, res) => {
+  console.log("hér");
+  console.log(File);
+FileDescription.findAll({
+    where: {
+      mapId : {
+        [Op.eq]: req.params.mapId
+      }
+    },
+    attributes: ['title', 'description', 'size', 'photoId', 'mapId']
+}).then(files => {
+  res.json(files);
+}).catch(err => {
+  console.log(err);
+  res.json({msg: 'Error', detail: err});
+  res.sendStatus(500);
+});
 }
 //MAP
 exports.uploadMap = (req, res) => {
@@ -190,4 +211,202 @@ exports.login = (req, res)=> {
       res.json({msg: 'Notandi fannst ekki'})
     })
 }
+// FERILSKRÁ - CV
 
+exports.uploadCV = (req, res) => {
+  console.log( "hallóó??");
+  console.log(req.file);
+  Cv.create({
+    type: req.file.mimetype,
+    name: req.file.originalname,
+    data: req.file.buffer
+  }).then(() => {
+    res.json({msg:'File uploaded successfully! -> filename = ' + req.file.originalname});
+  }).catch(err => {
+    console.log(err);
+    res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
+  });
+}
+
+exports.updateCV = (req, res) => {
+  console.log("update");
+  console.log(req.body);
+  console.log(req.params);
+  Cv.update({
+    type: req.file.mimetype,
+    name: req.file.originalname,
+    data: req.file.buffer
+  },{
+    where: {
+      id : {
+        [Op.eq]: 1
+      }
+    }
+  }).then((files) => {
+    res.json({msg:'File updated successfully! -> filename = ' + req.file.originalname});
+
+  }).catch(err => {
+    res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
+  })
+}
+
+exports.getCv = (req, res) => {
+  console.log("hér");
+  console.log(File);
+  console.log(req.body.mapId);
+  console.log(req.params.mapId);
+Cv.findAll({
+    where: {
+      id : {
+        [Op.eq]: 1
+      }
+    }
+}).then(file => {
+  var fileContents = Buffer.from(file[0].data, "base64");
+  var readStream = new stream.PassThrough();
+  readStream.end(fileContents);
+  res.set('Content-disposition', 'attachment; filename=' + file[0].name);
+  res.set('Content-Type', file[0].type);
+  readStream.pipe(res);
+ 
+}).catch(err => {
+  console.log(err);
+  res.json({msg: 'Error', detail: err});
+  res.sendStatus(500);
+});
+}
+
+//Cover
+
+exports.uploadCover = (req, res) => {
+  console.log( "hallóó??");
+  console.log(req.file);
+  Cover.create({
+    type: req.file.mimetype,
+    name: req.file.originalname,
+    data: req.file.buffer
+  }).then(() => {
+    res.json({msg:'File uploaded successfully! -> filename = ' + req.file.originalname});
+  }).catch(err => {
+    console.log(err);
+    res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
+  });
+}
+
+exports.updateCover = (req, res) => {
+  console.log("update");
+  console.log(req.body);
+  console.log(req.params);
+  Cover.update({
+    type: req.file.mimetype,
+    name: req.file.originalname,
+    data: req.file.buffer
+  },{
+    where: {
+      id : {
+        [Op.eq]: 1
+      }
+    }
+  }).then((files) => {
+    res.json({msg:'File updated successfully! -> filename = ' + req.file.originalname});
+
+  }).catch(err => {
+    res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
+  })
+}
+
+exports.getCover = (req, res) => {
+  console.log("hér");
+  console.log(File);
+  console.log(req.body.mapId);
+  console.log(req.params.mapId);
+Cover.findAll({
+    where: {
+      id : {
+        [Op.eq]: 1
+      }
+    }
+}).then(file => {
+  var fileContents = Buffer.from(file[0].data, "base64");
+  var readStream = new stream.PassThrough();
+  readStream.end(fileContents);
+  res.set('Content-disposition', 'attachment; filename=' + file[0].name);
+  res.set('Content-Type', file[0].type);
+  readStream.pipe(res);
+ 
+}).catch(err => {
+  console.log(err);
+  res.json({msg: 'Error', detail: err});
+  res.sendStatus(500);
+});
+}
+
+//SHOW COVER
+exports.uploadShowCover = (req, res) => {
+  console.log( "hallóó??");
+  console.log(req.file);
+  ShowCover.create({
+    type: req.file.mimetype,
+    name: req.file.originalname,
+    data: req.file.buffer
+  }).then(() => {
+    res.json({msg:'File uploaded successfully! -> filename = ' + req.file.originalname});
+  }).catch(err => {
+    console.log(err);
+    res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
+  });
+}
+
+exports.updateShowCover = (req, res) => {
+  console.log("update");
+  console.log(req.body);
+  console.log(req.params);
+  ShowCover.update({
+    type: req.file.mimetype,
+    name: req.file.originalname,
+    data: req.file.buffer
+  },{
+    where: {
+      id : {
+        [Op.eq]: 1
+      }
+    }
+  }).then((files) => {
+    res.json({msg:'File updated successfully! -> filename = ' + req.file.originalname});
+
+  }).catch(err => {
+    res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
+  })
+}
+
+exports.getShowCover = (req, res) => {
+  console.log("hér");
+  console.log(File);
+  console.log(req.body.mapId);
+  console.log(req.params.mapId);
+ShowCover.findAll({
+    where: {
+      id : {
+        [Op.eq]: 1
+      }
+    }
+}).then(file => {
+  var fileContents = Buffer.from(file[0].data, "base64");
+  var readStream = new stream.PassThrough();
+  readStream.end(fileContents);
+  res.set('Content-disposition', 'attachment; filename=' + file[0].name);
+  res.set('Content-Type', file[0].type);
+  readStream.pipe(res);
+ 
+}).catch(err => {
+  console.log(err);
+  res.json({msg: 'Error', detail: err});
+  res.sendStatus(500);
+});
+}

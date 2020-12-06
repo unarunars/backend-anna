@@ -24,6 +24,9 @@ db.files = require('../models/file.model.js')(sequelize, Sequelize);
 db.map = require('../models/map.model.js')(sequelize, Sequelize);
 db.fileDescription = require('../models/fileDescription.model.js')(sequelize, Sequelize);
 db.user = require('../models/user.model.js')(sequelize, Sequelize);
+db.cv = require('../models/cv.model.js')(sequelize, Sequelize);
+db.showCover  = require('../models/showCover.model.js')(sequelize, Sequelize);
+db.cover  = require('../models/cover.model.js')(sequelize, Sequelize);
 
 db.map.hasMany(db.files, {as: "File"});
 db.files.belongsTo(db.map, {
