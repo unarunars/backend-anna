@@ -111,6 +111,45 @@ exports.setFileDescription = (req, res) => {
       res.sendStatus(500);
     });
 }
+exports.updateFileDescription = (req, res) => {
+  console.log("update");
+  console.log(req.body);
+  console.log(req.params);
+  FileDescription.update({
+    title: req.body.title,
+    description: req.body.description,
+    size: req.body.size,
+  },{
+    where: {
+      [Op.and]: [
+        {mapId: req.params.mapId},
+        {photoId: req.params.photoId}
+      ]
+    }
+  }).then((files) => {
+    res.json(files);
+
+  }).catch(err => {
+    res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
+  })
+}
+exports.deleteFileDescription = (req, res )=> {
+  FileDescription.destroy({
+    where: {
+      [Op.and]: [
+        {mapId: req.params.mapId},
+        {photoId: req.params.photoId}
+      ]
+    }
+  }).then(files => {
+    res.json({msg:'File deleted! -> name = ' + files});
+  }).catch(err => {
+    console.log(err);
+    res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
+  });
+}
 exports.getFileDescription = (req, res) => {
   FileDescription.findAll({
     where: {
@@ -158,6 +197,27 @@ exports.uploadMap = (req, res) => {
       res.json({msg: 'Error', detail: err});
       res.sendStatus(500);
     });
+}
+exports.updateMap = (req, res) => {
+  console.log("update");
+  console.log(req.body);
+  console.log(req.params);
+  Map.update({
+    name: req.body.name,
+    description: req.body.description
+  },{
+    where: {
+      id : {
+        [Op.eq]: req.params.mapId
+      }
+    }
+  }).then((files) => {
+    res.json(files);
+
+  }).catch(err => {
+    res.json({msg: 'Error', detail: err});
+    res.sendStatus(500);
+  })
 }
 exports.listAllMaps = (req, res) => {
   Map.findAll({attributes: ['id', 'name', 'description']}).then(files => {

@@ -25,6 +25,10 @@ router.get('/api/file/description/:mapId/:photoId', fileWorker.getFileDescriptio
 
 router.get('/api/files/getAllDescription/:mapId', fileWorker.listAllFileDescription);
 
+router.put('/api/files/update/:mapId/:photoId', fileWorker.updateFileDescription)
+
+router.delete('/api/file/descriptions/delete/:mapId/:photoId', fileWorker.deleteFileDescription)
+
 
 //MAP - yfirmappan, í einnu möpppu er myndir(file) af einni sýningu(map)
 
@@ -33,6 +37,8 @@ router.post('/api/map/upload', upload.single("file"), fileWorker.uploadMap)
 router.get('/api/map/info', fileWorker.listAllMaps);
 
 router.delete('/api/map/:mapId', fileWorker.deleteMap)
+
+router.put('/api/update/map/:mapId', fileWorker.updateMap)
 
 //USER 
 
