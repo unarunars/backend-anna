@@ -1,11 +1,19 @@
+/* *****************************************************************************
+ *  Name:    Una Rúnarsdóttir
+ *
+ *  Description:   Creates the express connetion and creates the server. 
+ *                 App listener. 
+ *
+ *  Written:       9/12/2020
+ *  Last updated:  3/1/2021
+ *
+ *
+ **************************************************************************** */
 const express = require('express');
 const app = express();
 const env = require('./app/config/env.js');
-
 const bodyParser = require('body-parser')
 require('make-promises-safe').abort = true
-
-//const app = express()
 app.use(bodyParser.json())
  
 const cors = require('cors')
@@ -32,7 +40,4 @@ let port = process.env.PORT || 8080;
 const server = app.listen(/*5432,'0.0.0.0',*/ port , '0.0.0.0',function () {
   let host = server.address().address;
   let port = server.address().port;
-  console.log("=============================");
-  console.log(JSON.stringify(server.address()));
-  console.log("App listening at port:", port); 
 })

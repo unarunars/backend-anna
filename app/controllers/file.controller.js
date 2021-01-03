@@ -1,3 +1,15 @@
+
+/* *****************************************************************************
+ *  Name:    Una Rúnarsdóttir
+ *
+ *  Description:   All the functions that talk to the database and change it. 
+ *                 These function are then called in the endpoints in router.
+ *
+ *  Written:       9/12/2020
+ *  Last updated:  3/1/2021
+ *
+ *
+ **************************************************************************** */
 var stream = require('stream');
 const { Op } = require("sequelize");
 const db = require('../config/db.config.js');
@@ -11,19 +23,18 @@ const FileDescription = db.fileDescription;
 
 //home
 exports.home = (req, res) => {
-  
-    res.json({msg: 'hallooo'});
-    
+    res.json({msg: 'success'});
   }
-//FILE
+/*
+* FILE 
+* create a file
+*/
 exports.uploadFile = (req, res) => {
-  console.log(req.params.id, "hallóó??");
   File.create({
     type: req.file.mimetype,
     name: req.file.originalname,
     data: req.file.buffer,
     mapId: req.params.id,
-   // description: req.description,
   }).then(() => {
     res.json({msg:'File uploaded successfully! -> filename = ' + req.file.mimetype});
   }).catch(err => {
@@ -32,7 +43,10 @@ exports.uploadFile = (req, res) => {
     res.sendStatus(500);
   });
 }
-
+/*
+* FILE 
+* list all files with the map id from the query string
+*/
 exports.listAllFiles = (req, res) => {
     console.log("hér");
     console.log(File);
@@ -53,11 +67,12 @@ exports.listAllFiles = (req, res) => {
     res.sendStatus(500);
   });
 }
- 
+/*
+* FILE 
+* download file where the mapId and Id
+* is the same as in the query string
+*/
 exports.downloadFile = (req, res) => {
-    console.log("#########");
-    console.log(req.params.id);
-    console.log(File);
   File.findAll({
     where: {
       [Op.and]: [
@@ -79,6 +94,11 @@ exports.downloadFile = (req, res) => {
     res.sendStatus(500);
   });
 }
+/*
+* FILE 
+* delete file where the mapId and Id
+* is the same as in the query string
+*/
 exports.deleteFile = (req, res ) => {
   File.destroy({
     where: {
@@ -95,7 +115,10 @@ exports.deleteFile = (req, res ) => {
     res.sendStatus(500);
   });
 }
-//FILE DESCRIPTION
+/*
+* FILE DESCRIPTION
+* create file description 
+*/
 exports.setFileDescription = (req, res) => {
   FileDescription.create({
     title: req.body.title,
@@ -111,6 +134,11 @@ exports.setFileDescription = (req, res) => {
       res.sendStatus(500);
     });
 }
+/*
+* FILE DESCRIPTION
+* update file description where the mapId and Id
+* is the same as in the query string
+*/
 exports.updateFileDescription = (req, res) => {
   console.log("update");
   console.log(req.body);
@@ -134,6 +162,11 @@ exports.updateFileDescription = (req, res) => {
     res.sendStatus(500);
   })
 }
+/*
+* FILE DESCRIPTION
+* delete file description where the mapId and Id
+* is the same as in the query string
+*/
 exports.deleteFileDescription = (req, res )=> {
   FileDescription.destroy({
     where: {
@@ -150,6 +183,11 @@ exports.deleteFileDescription = (req, res )=> {
     res.sendStatus(500);
   });
 }
+/*
+* FILE DESCRIPTION
+* get file description where the mapId and Id
+* is the same as in the query string
+*/
 exports.getFileDescription = (req, res) => {
   FileDescription.findAll({
     where: {
@@ -166,6 +204,11 @@ exports.getFileDescription = (req, res) => {
     res.sendStatus(500);
   });
 }
+/*
+* FILE DESCRIPTION
+* get all file description where the mapId
+* is the same as in the query string
+*/
 exports.listAllFileDescription = (req, res) => {
   console.log("hér");
   console.log(File);
@@ -184,7 +227,10 @@ FileDescription.findAll({
   res.sendStatus(500);
 });
 }
-//MAP
+/*
+* MAP
+* create map
+*/
 exports.uploadMap = (req, res) => {
   console.log(req.body)
   Map.create({
@@ -198,6 +244,11 @@ exports.uploadMap = (req, res) => {
       res.sendStatus(500);
     });
 }
+/*
+* MAP
+* create map where the mapId
+* is the same as in the query string
+*/
 exports.updateMap = (req, res) => {
   console.log("update");
   console.log(req.body);
@@ -219,6 +270,10 @@ exports.updateMap = (req, res) => {
     res.sendStatus(500);
   })
 }
+/*
+* MAP
+* get all maps
+*/
 exports.listAllMaps = (req, res) => {
   Map.findAll({attributes: ['id', 'name', 'description']}).then(files => {
     res.json(files);
@@ -228,6 +283,11 @@ exports.listAllMaps = (req, res) => {
     res.sendStatus(500);
   });
 }
+/*
+* MAP
+* delete map where the mapId
+* is the same as in the query string
+*/
 exports.deleteMap = (req, res )=> {
   Map.destroy({
     where: {
@@ -243,6 +303,10 @@ exports.deleteMap = (req, res )=> {
     res.sendStatus(500);
   });
 }
+/*
+* USER
+* create user 
+*/
 exports.createUser = (req, res) => {
   User.create({
     name: req.body.name,
@@ -255,7 +319,12 @@ exports.createUser = (req, res) => {
     res.sendStatus(500);
   }); 
 }
-
+/*
+* USER
+* finds the user with the same name and psw
+* as in the query string. 
+* Otherwise user isn't registered
+*/
 exports.login = (req, res)=> {
   console.log(req.body.name);
   User.findAll({
@@ -271,8 +340,10 @@ exports.login = (req, res)=> {
       res.json({msg: 'Notandi fannst ekki'})
     })
 }
-// FERILSKRÁ - CV
-
+/*
+* CV
+* create cv
+*/
 exports.uploadCV = (req, res) => {
   console.log( "hallóó??");
   console.log(req.file);
@@ -288,7 +359,10 @@ exports.uploadCV = (req, res) => {
     res.sendStatus(500);
   });
 }
-
+/*
+* CV
+* updates cv
+*/
 exports.updateCV = (req, res) => {
   console.log("update");
   console.log(req.body);
@@ -311,7 +385,10 @@ exports.updateCV = (req, res) => {
     res.sendStatus(500);
   })
 }
-
+/*
+* CV
+* get cv
+*/
 exports.getCv = (req, res) => {
   console.log("hér");
   console.log(File);
@@ -337,9 +414,10 @@ Cv.findAll({
   res.sendStatus(500);
 });
 }
-
-//Cover
-
+/*
+* COVER
+* create cover
+*/
 exports.uploadCover = (req, res) => {
   console.log( "hallóó??");
   console.log(req.file);
@@ -355,7 +433,10 @@ exports.uploadCover = (req, res) => {
     res.sendStatus(500);
   });
 }
-
+/*
+* COVER
+* update cover
+*/
 exports.updateCover = (req, res) => {
   console.log("update");
   console.log(req.body);
@@ -378,7 +459,10 @@ exports.updateCover = (req, res) => {
     res.sendStatus(500);
   })
 }
-
+/*
+* COVER
+* get cover
+*/
 exports.getCover = (req, res) => {
   console.log("hér");
   console.log(File);
@@ -404,11 +488,11 @@ Cover.findAll({
   res.sendStatus(500);
 });
 }
-
-//SHOW COVER
+/*
+* SHOW COVER
+* create show cover
+*/
 exports.uploadShowCover = (req, res) => {
-  console.log( "hallóó??");
-  console.log(req.file);
   ShowCover.create({
     type: req.file.mimetype,
     name: req.file.originalname,
@@ -421,11 +505,11 @@ exports.uploadShowCover = (req, res) => {
     res.sendStatus(500);
   });
 }
-
+/*
+* SHOW COVER
+* update show cover
+*/
 exports.updateShowCover = (req, res) => {
-  console.log("update");
-  console.log(req.body);
-  console.log(req.params);
   ShowCover.update({
     type: req.file.mimetype,
     name: req.file.originalname,
@@ -444,7 +528,10 @@ exports.updateShowCover = (req, res) => {
     res.sendStatus(500);
   })
 }
-
+/*
+* SHOW COVER
+* get show cover
+*/
 exports.getShowCover = (req, res) => {
   console.log("hér");
   console.log(File);

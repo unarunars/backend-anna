@@ -1,3 +1,13 @@
+/* *****************************************************************************
+ *  Name:    Una Rúnarsdóttir
+ *
+ *  Description:   Creates the connections for sequlizer, env and all models
+ *
+ *  Written:       9/12/2020
+ *  Last updated:  3/1/2021
+ *
+ *
+ **************************************************************************** */
 const env = require('./env.js');
  
 const Sequelize = require('sequelize');
