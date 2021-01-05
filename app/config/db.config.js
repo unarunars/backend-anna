@@ -44,4 +44,5 @@ db.files.belongsTo(db.map, {
   as: "Map"
 })
 
+
 module.exports = db;

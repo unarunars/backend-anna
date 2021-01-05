@@ -1,3 +1,15 @@
+/* *****************************************************************************
+ *  Name:    Una Rúnarsdóttir
+ *
+ *  Description:   All the endpoints that are called in the front end.  
+ *                 This is the query, what is called
+ *                 All the functionality is in the controller and is called in the endpoints.
+ *
+ *  Written:       9/12/2020
+ *  Last updated:  3/1/2021
+ *
+ *
+ **************************************************************************** */
 let express = require('express');
 let router = express.Router();
 let upload = require('../config/multer.config.js');
