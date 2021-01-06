@@ -18,7 +18,7 @@ app.use(bodyParser.json())
  
 const cors = require('cors')
 const corsOptions = {
-  origin: 'https://anna--backend.herokuapp.com/',
+  origin: '*',
   optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions));
