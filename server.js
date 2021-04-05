@@ -37,7 +37,7 @@ let router = require('./app/routers/file.router.js');
 app.use('/', router);
  
 // Create a Server
-let port = process.env.PORT || 8080;
+let port = process.env.PORT;
 const server = app.listen(/*5432,'0.0.0.0',*/ port , '0.0.0.0',function () {
   let host = server.address().address;
   let port = server.address().port;
