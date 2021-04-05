@@ -15,6 +15,7 @@ const env = require('./app/config/env.js');
 const bodyParser = require('body-parser')
 require('make-promises-safe').abort = true
 app.use(bodyParser.json())
+
  
 const cors = require('cors')
 const corsOptions = {
