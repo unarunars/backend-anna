@@ -4,6 +4,12 @@ const env = {
     password: '810cd7381f8dc302e29acd17a5bb829699bfc791ae07692d49d205f7c479bb7e',
     host: 'ec2-54-246-87-132.eu-west-1.compute.amazonaws.com',
     dialect: 'postgres',
+    dialectOptions: {
+      ssl: {
+        required: true, 
+        rejectUnauthorized: false
+      }
+    },
     port: 5423,
     pool: {
       max: 5,
